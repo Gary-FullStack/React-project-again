@@ -1,8 +1,26 @@
 import { createRoot } from "react-dom/client";
 import { StrictMode } from "react";
 
-const Header = (props) => {
-    
+const items = [
+    {
+      name: "Apples",
+      quantity: 5
+    },
+    {
+      name: "Bananas",
+      quantity: 7
+    },
+    {
+      name: "Box of Pasta",
+      quantity: 1
+    },
+    {
+      name: "Cookies",
+      quantity: 12
+    }
+  ]
+
+const Header = (props) => {    
     return (
         <header>
             <h1>{props.title}</h1>
@@ -58,7 +76,7 @@ const root = createRoot(document.getElementById("root"));
 root.render(
 
     <StrictMode>
-        <App />
+        <App initialList={items}/>
     </StrictMode>    
 
 );
