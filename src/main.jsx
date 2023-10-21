@@ -4,19 +4,23 @@ import { StrictMode } from "react";
 const items = [
     {
       name: "Apples",
-      quantity: 5
+      quantity: 5,
+      id: 1
     },
     {
       name: "Bananas",
-      quantity: 7
+      quantity: 7,
+      id: 2
     },
     {
       name: "Box of Pasta",
-      quantity: 1
+      quantity: 1,
+        id: 3
     },
     {
       name: "Cookies",
-      quantity: 12
+      quantity: 12,
+        id: 4
     }
   ]
 
@@ -50,20 +54,24 @@ const Counter = (props) => {
     )
 }
 
-const App = () => {
+const App = (props) => {
     return (
         <div className="grocery-list">
             <Header 
                 title= "Grocery List" 
-                itemTotal={12} />
+                itemTotal={props.initialList.length} />
 
 
             {/* the list */}
-            <Item name="Onion" quantity={10} />
-            <Item name="naners" quantity={1} />
-            <Item name="taters" quantity={2} />
-            <Item name="glue" quantity={1} />
-            <Item name="snacks" quantity={99} />
+
+            {props.initialList.map(item => 
+                <Item 
+                    name={item.name}
+                    quantity={item.quantity}
+                    key={item.id} 
+                />
+            )}
+
         </div>
     )
 
